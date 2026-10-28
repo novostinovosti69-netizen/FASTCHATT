@@ -1,0 +1,31 @@
+FASTCHAT - FIREBASE VERSION (free Spark plan par chalta hai)
+
+A) FIREBASE PROJECT
+ 1. console.firebase.google.com > Add project (naam: fastchat) > Analytics off bhi theek hai
+ 2. Build > Authentication > Get started > Sign-in method > "Email/Password" ENABLE karein
+ 3. Build > Firestore Database > Create database > production mode > apna region chunein
+    Rules tab mein firestore.rules ka poora content paste karke Publish karein
+ 4. Project settings (gear) > General > Your apps > Web (</>) > app register karein
+    Jo "firebaseConfig = {...}" mile usay copy kar lein
+
+B) CONFIG APP MEIN DAALEIN (koi code edit nahi)
+ App kholein > login page par neeche "⚙ Firebase" > config paste karein > Save.
+ (Ya index.html mein DEFAULT_CFG mein paste kar dein, to APK mein pehle se set hoga.)
+
+C) ADMIN
+ mpdsangi@gmail.com se "Naya account banayein" karke signup karein. Is email ko app mein "＋" (user add)
+ aur 🗑 (user remove) milta hai. Ye email firestore.rules mein bhi admin hai.
+
+D) APK
+ Zip fastchat-apk.zip GitHub par upload karein > Actions > Build APK > Artifacts se APK download.
+ Ya online link chahiye to: npm i -g firebase-tools > firebase login > firebase init hosting (public folder ".")
+ > firebase deploy.
+
+E) PHOTO/VOICE/VIDEO
+ Default mein photo aur voice note Firestore mein save hote hain (free). Video ke liye Firebase Storage chahiye,
+ jo ab Blaze (pay-as-you-go, card zaroori) plan par milta hai. Chahein to Storage enable karke storage.rules
+ paste karein aur index.html mein USE_STORAGE=true kar dein.
+
+F) NOTIFICATION
+ Sound/vibration tab aate hain jab app khuli ho ya background mein ho. App band hone par push ke liye
+ Firebase Cloud Functions (Blaze) chahiye, wo abhi shamil nahi.
